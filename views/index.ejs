@@ -1,0 +1,17 @@
+
+<%- include('layout') %>
+
+<h2>Portfolio</h2>
+<ul>
+  <% portfolios.forEach(portfolio => { %>
+    <li>
+      <h3><%= portfolio.title %></h3>
+      <p><%= portfolio.description %></p>
+      <img src="<%= portfolio.imageUrl %>" alt="<%= portfolio.title %>">
+      <a href="/edit/<%= portfolio._id %>">Edit</a>
+      <form action="/delete/<%= portfolio._id %>" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
